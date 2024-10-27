@@ -1,0 +1,74 @@
+﻿@page
+@model AspNetCoreBlazor.Exemplos.Pages.Menu.Menu1Model
+@{
+}
+
+
+<style>
+    /* Estilos gerais */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Contêiner principal com flexbox */
+    .container {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Barra lateral */
+    .sidebar {
+        width: 250px;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        transition: width 0.3s;
+    }
+
+    /* Conteúdo principal */
+    .content {
+        flex: 1;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+     
+
+
+ /*    media (max-width: 768px) {
+        .sidebar {
+            width: 70px; 
+        }
+        .sidebar .menu-text {
+            display: none;  
+        }
+    } */
+</style>
+
+
+
+ 
+<body>
+    <div class="container">
+        <!-- Barra Lateral -->
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="/Grid/GridSticky"><span class="menu-text">Home</span></a></li>
+                <li><a href="#"><span class="menu-text">Serviços</span></a></li>
+                <li><a href="#"><span class="menu-text">Sobre</span></a></li>
+                <li><a href="#"><span class="menu-text">Contato</span></a></li>
+            </ul>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="content">
+            <h1>Bem-vindo ao site!</h1>
+            <p>Este é um exemplo de layout responsivo com ajuste da barra lateral.</p>
+        </div>
+    </div>
+</body>
+
+   

@@ -1,0 +1,78 @@
+﻿@page "/Grid/GridSticky"
+@using static AspNetCoreBlazor.Exemplos.Pages.Grid.GridStickyModel
+@model AspNetCoreBlazor.Exemplos.Pages.Grid.GridStickyModel
+@using AspNetCoreBlazor.Exemplos.Nucleo;
+
+<style>
+    .usuario-tabela {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+
+    .usuario-tabela th, .usuario-tabela td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .usuario-tabela th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+        position: sticky; /* Mantém o cabeçalho fixo */
+        top: 0; /* Fixa o cabeçalho no topo */
+        z-index: 1; /* Garante que o cabeçalho fique acima das outras linhas */
+    }
+
+    .usuario-tabela tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .usuario-tabela tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .table-container {
+        height: 320px;
+        overflow-y: auto;
+    }
+
+
+
+
+
+</style>
+
+<h3>Lista de Usuários</h3>
+
+<p>Na tabela, definir position: sticky; top: 0; para o cabeçalho (<th>) faz com que ele permaneça visível no topo da tabela enquanto você rola o conteúdo verticalmente. Isso é útil para grandes listas, facilitando a visualização das colunas, pois o cabeçalho permanece fixo.</p>
+
+<div class="table-container">
+    <table class="usuario-tabela">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Código</th>
+                <th>Email</th>
+                <th>Data de Nascimento</th>
+                <th>Data de Cadastro</th>
+                <th>Status</th>
+                <th>CPF</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registro in Model.Registros)
+            {
+                <tr>
+                    <td>@registro.Nome</td>
+                    <td>@registro.Codigo</td>
+                    <td>@registro.Email</td>
+                    <td>@registro.DataNascimento.ToString("dd/MM/yyyy")</td>
+                    <td>@registro.DataCadastro.ToString("dd/MM/yyyy")</td>
+                    <td>@(registro.Ativo ? "Ativo" : "Inativo")</td>
+                    <td>@registro.Cpf</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
